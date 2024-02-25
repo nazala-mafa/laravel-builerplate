@@ -25,11 +25,20 @@ class SidemenuService implements SidemenuServiceInterface
                 'text' => 'search',
             ],
             [
-                'text' => 'pages',
-                'url' => 'admin/pages',
-                'icon' => 'far fa-fw fa-user-edit',
+                'text' => 'Dashboard',
+                'url' => route('admin.home'),
+                'icon' => 'fas fa-tachometer-alt'
             ],
-            ['header' => 'account_settings'],
+            [
+                'text' => 'Users',
+                'url' => route('admin.user.index'),
+                'icon' => 'fas fa-users'
+            ],
+            [
+                'text' => 'Profile Edit',
+                'url' => route('admin.profile'),
+                'icon' => 'fas fa-user-edit',
+            ],
         ];
     }
 }
