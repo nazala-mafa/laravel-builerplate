@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Services\SidemenuService;
 use App\Services\SidemenuServiceInterface;
+use App\Services\UserService;
 use Illuminate\Support\ServiceProvider;
 
 class AdminServiceProvider extends ServiceProvider
@@ -14,6 +15,7 @@ class AdminServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(SidemenuServiceInterface::class, SidemenuService::class);
+        $this->app->singleton(UserService::class);
     }
 
     /**

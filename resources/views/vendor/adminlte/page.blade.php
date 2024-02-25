@@ -3,6 +3,7 @@
 @inject('layoutHelper', 'JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper')
 
 @section('adminlte_css')
+    @vite(['resources/sass/custom.scss'])
     @stack('css')
     @yield('css')
 @stop
