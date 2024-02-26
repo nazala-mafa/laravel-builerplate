@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
-    'middleware' => ['web', 'auth:admin', 'role:admin']
+    'middleware' => ['web', 'auth:admin']
 ], function() {
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
