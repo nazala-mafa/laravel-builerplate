@@ -39,15 +39,6 @@ class UserDataTable extends DataTable
     {
         $data = $model->with('roles:name');
 
-        if (request()->input('columns.3.search.value')) {
-            $data = $model
-                ->with('roles:name')
-                ->whereHas("roles", function($q){ 
-                    $q->where("name", request()->input('columns.3.search.value')); 
-                });
-            // dd($model->get());
-        }
-
         return $this->applyScopes($data);
     }
 

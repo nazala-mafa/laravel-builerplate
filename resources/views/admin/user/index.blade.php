@@ -9,15 +9,21 @@
 @section('content')
     <div class="max-1200">
         <div class="card">
-            <div class="card-header row">
-                <div class="col-4">
+            <div class="card-header">
+                <div class="w-100 d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0">Users Table</h4>
+                    <div>
+                        <a href="{{ route('admin.user.create') }}" class="btn btn-primary">Add New</a>
+                    </div>
+                </div>
+                {{-- <div class="col-4">
                     <select id="filter-role" class="form-control">
                         <option value="">Filter Role</option>
                         @foreach ($roles as $role)
                             <option value="{{$role->name}}">{{$role->name}}</option>
                         @endforeach
                     </select>
-                </div>
+                </div> --}}
             </div>
             <div class="card-body table-responsive">
                 {{ $dataTable->table() }}
@@ -32,29 +38,29 @@
     <script>
         var finishDraw = true;
 
-        $('#filter-role').on('change', function() {
-            var id = $(this).val();
-            if (id == "" || id == null || id == "-") {  
-                filterTable()
-                return;
-            }
-            filterTable()
-        })
+        // $('#filter-role').on('change', function() {
+        //     var id = $(this).val();
+        //     if (id == "" || id == null || id == "-") {  
+        //         filterTable()
+        //         return;
+        //     }
+        //     filterTable()
+        // })
 
-        function filterTable() {
-            if (finishDraw === false) return;
+        // function filterTable() {
+        //     if (finishDraw === false) return;
 
-            var roleId = $('#filter-role').val()
+        //     var roleId = $('#filter-role').val()
 
-            if(roleId == "" || roleId == null || roleId == "-"){
-                window.LaravelDataTables["user-table"].column(3).search("");
-            }else{
-                window.LaravelDataTables["user-table"].column(3).search(roleId);
-            }
+        //     if(roleId == "" || roleId == null || roleId == "-"){
+        //         window.LaravelDataTables["user-table"].column(3).search("");
+        //     }else{
+        //         window.LaravelDataTables["user-table"].column(3).search(roleId);
+        //     }
 
-            window.LaravelDataTables["user-table"].draw();
-            finishDraw = false;
-        }
+        //     window.LaravelDataTables["user-table"].draw();
+        //     finishDraw = false;
+        // }
 
         $("#user-table").on('draw.dt', function() {
             // finish draw
