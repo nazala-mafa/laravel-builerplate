@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
     ];
@@ -43,5 +43,20 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function adminlte_profile_url()
+    {
+        return route('profile.edit');
+    }
+
+    public function adminlte_image()
+    {
+        return "https://www.gravatar.com/avatar/" . hash( "sha256", strtolower( trim( $this->email ) ) ) . "?d=robohash&s=100";
+    }
+
+    public function adminlte_desc()
+    {
+        return fake()->sentence();
     }
 }
